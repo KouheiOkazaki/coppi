@@ -23,11 +23,10 @@ jobs:
           cache: 'yarn'
 
       - name: Install Dependencies
-        run: yarn install
+        run: yarn upgrade && yarn install
 
       - name: Run ESLint
-        run: yarn eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/ --format
-
+        run: yarn eslint
 
       - name: Run Prettier Check
         run: yarn prettier --check .
