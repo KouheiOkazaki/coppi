@@ -29,4 +29,4 @@ jobs:
         run: yarn eslint
 
       - name: Run Prettier Check
-        run: yarn prettier --check .
+        run: yarn format
