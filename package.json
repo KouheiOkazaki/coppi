@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/"
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/",
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\""
+
   },
   "dependencies": {
     "next": "^14.1.0",
@@ -24,6 +26,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
+    "prettier": "3.2.5",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
