@@ -6,7 +6,6 @@ module.exports = {
     esmExternals: 'loose',
     serverComponentsExternalPackages: ['mongoose'],
   },
-
   images: {
     domains: ['lh3.googleusercontent.com'],
   },
