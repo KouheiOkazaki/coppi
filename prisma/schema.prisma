@@ -13,7 +13,97 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model test {
-  id Int @id @default(autoincrement())
-  title String
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String?
+  email         String?        @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  Subscription  Subscription[]
+  TeamMember    TeamMember[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Subscription {
+  id         String   @id @default(cuid())
+  user_id    String
+  plan_id    String
+  start_date DateTime
+  end_date   DateTime
+  status     String
+  user       User     @relation(fields: [user_id], references: [id])
+  plan       Plan     @relation(fields: [plan_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  Team       Team?    @relation(fields: [teamId], references: [id])
+  teamId     String?
+}
+
+model Plan {
+  id                  String         @id @default(cuid())
+  name                String
+  description         String
+  price               Decimal
+  duration            String
+  type                String // "free", "pro", "team"
+  feature_limitations Json? // 任意でプランに応じた制限をJSONで管理
+  subscriptions       Subscription[]
+  created_at          DateTime       @default(now())
+  updated_at          DateTime       @updatedAt
+}
+
+model Team {
+  id            String         @id @default(cuid())
+  name          String
+  subscriptions Subscription[]
+  members       TeamMember[]
+  created_at    DateTime       @default(now())
+  updated_at    DateTime       @updatedAt
+}
+
+model TeamMember {
+  team_id   String
+  user_id   String
+  role      String
+  joined_at DateTime @default(now())
+  user      User     @relation(fields: [user_id], references: [id])
+  team      Team     @relation(fields: [team_id], references: [id])
+
+  @@id([team_id, user_id])
 }
