@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import Login from '@/components/Login'
-import Logout from '@/components/Logout'
+import Login from '@/components/auth/Login'
+import Logout from '@/components/auth/Logout'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 
