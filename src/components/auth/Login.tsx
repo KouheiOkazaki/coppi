@@ -27,9 +27,6 @@ export default function Login() {
                 <div className="gsi-material-button-icon">
                   <Image src={googleLogo} alt="Google" width={200} />
                 </div>
-                <span className="gsi-material-button-contents">
-                  Googleでログイン
-                </span>
               </div>
             </button>
           </div>
