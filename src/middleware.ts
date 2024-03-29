@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { i18n } from './i18n-config' // i18n 設定をインポート
+import { i18n } from '../i18n-config' // i18n 設定をインポート
 
 import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
@@ -32,7 +32,6 @@ export async function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-
 export const config = {
-  matcher: ['/((?!_next).*)'],
+  matcher: ['/((?!_next|auth|api).*)'],
 }
