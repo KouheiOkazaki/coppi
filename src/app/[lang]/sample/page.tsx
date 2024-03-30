@@ -1,7 +1,7 @@
-import LocaleSwitcher from '@/components/locale-switcher'
-import Counter from '@/components/counter'
-import { getDictionary } from '../../../../getDictionary'
+import LocaleSwitcher from '@/src/components/locale-switcher'
 import { Locale } from '../../../../i18n-config'
+import Counter from '@/src/components/counter'
+import { getDictionary } from '@/dictionaries/getDictionary'
 
 export default async function IndexPage({
   params: { lang },
@@ -14,11 +14,8 @@ export default async function IndexPage({
     <div>
       <LocaleSwitcher />
       <p>Current locale: {lang}</p>
-      <p>
-        This text is rendered on the server:{' '}
-        {dictionary['server-component'].welcome}
-      </p>
-      <Counter dictionary={dictionary.counter} />
+      <p>{dictionary.serverComponent!.welcome}</p>
+      <Counter dictionary={dictionary.counter!} />
     </div>
   )
 }

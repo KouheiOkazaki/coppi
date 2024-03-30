@@ -1,8 +1,7 @@
 import React from 'react'
 import { useSession, signIn } from 'next-auth/react'
-import Image from 'next/image';
-import googleLogo from '@public/web_light_sq_ctn@4x.png'; // ロゴ画像のパスを適切に設定
-
+import Image from 'next/image'
+import googleLogo from '@public/web_light_sq_ctn@4x.png' // ロゴ画像のパスを適切に設定
 
 export default function Login() {
   const { status } = useSession()

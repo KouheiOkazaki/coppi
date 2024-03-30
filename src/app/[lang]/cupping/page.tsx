@@ -1,5 +1,5 @@
 'use client'
-import TabNavigation from '@/components/common/navigation/Navigation'
+import TabNavigation from '@/src/components/common/navigation/Navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
