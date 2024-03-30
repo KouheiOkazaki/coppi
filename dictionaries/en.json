@@ -5,5 +5,8 @@
     "counter": {
       "increment": "increment",
       "decrement": "decrement"
+    },
+    "sample":{
+      "dashboard": "ダッシュボード"
     }
   }

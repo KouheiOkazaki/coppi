@@ -15,7 +15,6 @@ function getLocale(request: NextRequest): string | undefined {
   return locale
 }
 
-
 export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone()
   const pathname = url.pathname
@@ -29,9 +28,8 @@ export async function middleware(request: NextRequest) {
     url.pathname = `/${locale}${pathname}`
     return NextResponse.redirect(url)
   }
-  return NextResponse.next();
+  return NextResponse.next()
 }
-
 export const config = {
   matcher: ['/((?!_next|auth|api).*)'],
 }

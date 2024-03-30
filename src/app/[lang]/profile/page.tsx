@@ -3,7 +3,7 @@
 import React from 'react'
 import { useSession, signIn } from 'next-auth/react'
 import type { NextPage } from 'next'
-import TabNavigation from '@/components/common/navigation/Navigation'
+import TabNavigation from '@/src/components/common/navigation/Navigation'
 
 const ProfilePage: NextPage = () => {
   const { data: session, status } = useSession()

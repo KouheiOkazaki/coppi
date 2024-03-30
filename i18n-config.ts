@@ -1,6 +1,6 @@
 export const i18n = {
   defaultLocale: 'ja',
-  localeDetection: false,
+  LocaleDetection: false,
   locales: ['ja','en']
 } as const
 
