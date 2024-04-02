@@ -1,29 +1,29 @@
 'use client'
-import React from 'react';
-import { useSession, signIn } from 'next-auth/react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import TabNavigation from '@/src/components/common/navigation/Navigation';
+import React from 'react'
+import { useSession, signIn } from 'next-auth/react'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import TabNavigation from '@/src/components/common/navigation/Navigation'
 
 interface ProfileFormValues {
-  name: string;
-  email: string;
+  name: string
+  email: string
 }
 
 const ProfilePage: React.FC = () => {
-  const { data: session, status } = useSession();
-  const { register, handleSubmit, reset } = useForm<ProfileFormValues>();
+  const { data: session, status } = useSession()
+  const { register, handleSubmit, reset } = useForm<ProfileFormValues>()
 
   const onSubmit: SubmitHandler<ProfileFormValues> = async (data) => {
     // フォームの送信処理を実装する
-    console.log(data);
-  };
+    console.log(data)
+  }
 
   if (status === 'loading') {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="text-lg font-semibold">Loading...</div>
       </div>
-    );
+    )
   }
 
   if (status !== 'authenticated') {
@@ -37,11 +37,11 @@ const ProfilePage: React.FC = () => {
           ログイン
         </button>
       </div>
-    );
+    )
   }
 
   // 仮のユーザー情報とプラン情報
-  const userName = '仮ユーザー名';
+  const userName = '仮ユーザー名'
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -92,7 +92,7 @@ const ProfilePage: React.FC = () => {
       </div>
       <TabNavigation />
     </div>
-  );
-};
+  )
+}
 
-export default ProfilePage;
+export default ProfilePage
