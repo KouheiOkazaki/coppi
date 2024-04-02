@@ -6,17 +6,16 @@ import { useForm } from 'react-hook-form'
 type FormData = {
   sampleNo: string
   roastLevel: string
-  fragranceAroma: number
+  aroma: number
+  defects: number
+  cleanCup: number
+  sweet: number
+  acidity: number
+  mouthfeel: number
   flavor: number
   aftertaste: number
-  acidity: number
-  body: number
-  uniformity: number
   balance: number
-  cleanCup: number
-  sweetness: number
   overall: number
-  defects: number
 }
 
 const CuppingForm: React.FC = () => {
@@ -51,19 +50,99 @@ const CuppingForm: React.FC = () => {
           )}
         </div>
         <div className="flex flex-col">
-          <label htmlFor="fragranceAroma" className="block mb-2 font-medium">
-            Fragrance/Aroma:
+          <label htmlFor="cleanCup" className="block mb-2 font-medium">
+            Clean Cup
           </label>
-          <input
-            type="number"
-            {...register('fragranceAroma', { required: true, min: 6, max: 10 })}
-            className="form-input px-4 py-2 border rounded-md"
-          />
-          {errors.fragranceAroma && (
-            <span className="text-red-500 text-sm">
-              Please enter a valid score between 6 and 10
-            </span>
-          )}
+          <select
+            {...register('cleanCup', { required: true })}
+            className="form-select px-4 py-2 border rounded-md"
+          >
+            <option value="0">0</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="sweet" className="block mb-2 font-medium">
+            Sweet
+          </label>
+          <select
+            {...register('sweet', { required: true })}
+            className="form-select px-4 py-2 border rounded-md"
+          >
+            <option value="0">0</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="acidity" className="block mb-2 font-medium">
+            Acidity
+          </label>
+          <select
+            {...register('acidity', { required: true })}
+            className="form-select px-4 py-2 border rounded-md"
+          >
+            <option value="0">0</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="mouthfeel" className="block mb-2 font-medium">
+            Mouthfeel
+          </label>
+          <select
+            {...register('mouthfeel', { required: true })}
+            className="form-select px-4 py-2 border rounded-md"
+          >
+            <option value="0">0</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="flavor" className="block mb-2 font-medium">
+            Fravor
+          </label>
+          <select
+            {...register('flavor', { required: true })}
+            className="form-select px-4 py-2 border rounded-md"
+          >
+            <option value="0">0</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+          </select>
         </div>
         <button
           type="submit"
