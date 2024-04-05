@@ -17,6 +17,12 @@ const TabNavigation: React.FC = () => {
       >
         Profile
       </Link>
+      <Link
+        href="/ja/setting"
+        className="py-2 px-4 text-gray-500 hover:text-blue-500"
+      >
+        Setting
+      </Link>
       {/* 他のタブ用のリンクを追加 */}
     </nav>
   )

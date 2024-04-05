@@ -1,4 +1,5 @@
 'use client'
+import TabNavigation from '@/src/components/common/navigation/Navigation';
 import React, { useState, ChangeEvent } from 'react';
 
 const SettingsPage = () => {
@@ -10,7 +11,7 @@ const SettingsPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="bg-gray-50 min-h-screen">
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold mb-6 text-center">Settings</h1>
         <div className="mb-6">
@@ -27,6 +28,7 @@ const SettingsPage = () => {
         </div>
         <p className="text-lg text-center">You selected: {cuppingForm} Cupping Form</p>
       </div>
+      <TabNavigation/>
     </div>
   );
 };
