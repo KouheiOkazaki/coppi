@@ -20,7 +20,7 @@ const CoeCuppingForm: React.FC = () => {
 
   return (
     <>
-    <Timer/>
+      <Timer />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="space-y-4 p-4 max-w-xl mx-auto bg-white rounded-lg shadow"

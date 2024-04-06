@@ -1,34 +1,34 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 const Timer = () => {
-  const [time, setTime] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
+  const [time, setTime] = useState(0)
+  const [isRunning, setIsRunning] = useState(false)
 
   useEffect(() => {
-    let timer: NodeJS.Timeout | undefined; // timerの型をNodeJS.Timeoutに変更
+    let timer: NodeJS.Timeout | undefined // timerの型をNodeJS.Timeoutに変更
 
     if (isRunning) {
       timer = setInterval(() => {
-        setTime(prevTime => prevTime + 1);
-      }, 1000);
+        setTime((prevTime) => prevTime + 1)
+      }, 1000)
     } else {
-      if (timer) clearInterval(timer); // timerが存在する場合のみclearIntervalを実行
+      if (timer) clearInterval(timer) // timerが存在する場合のみclearIntervalを実行
     }
 
     return () => {
-      if (timer) clearInterval(timer); // timerが存在する場合のみclearIntervalを実行
-    };
-  }, [isRunning]);
+      if (timer) clearInterval(timer) // timerが存在する場合のみclearIntervalを実行
+    }
+  }, [isRunning])
 
   const handleStartStop = () => {
-    setIsRunning(prev => !prev);
-  };
+    setIsRunning((prev) => !prev)
+  }
 
   const handleReset = () => {
-    setTime(0);
-    setIsRunning(false);
-  };
+    setTime(0)
+    setIsRunning(false)
+  }
 
   return (
     <div className="flex flex-col items-center justify-center ">
@@ -36,7 +36,8 @@ const Timer = () => {
       <div className="text-5xl font-bold mb-4">
         {Math.floor(time / 60)
           .toString()
-          .padStart(2, '0')}:{(time % 60).toString().padStart(2, '0')}
+          .padStart(2, '0')}
+        :{(time % 60).toString().padStart(2, '0')}
       </div>
       <div>
         <button
@@ -53,9 +54,7 @@ const Timer = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Timer;
-
-
+export default Timer
