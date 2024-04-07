@@ -4,6 +4,7 @@ import TabNavigation from '@/src/components/common/navigation/Navigation'
 import { useForm } from 'react-hook-form'
 import { CoeFormData } from '@/src/commons/types/type'
 import Timer from '../timer/Timer'
+import { postFormAction } from './actions'
 
 const scoreOptions = [0, 2, 4, 5, 6, 6.5, 7, 7.5, 8]
 
@@ -14,8 +15,13 @@ const CoeCuppingForm: React.FC = () => {
     formState: { errors },
   } = useForm<CoeFormData>()
 
-  const onSubmit = (data: CoeFormData) => {
+  const onSubmit = async (data: CoeFormData) => {
     console.log(data)
+    try {
+      await postFormAction(data)
+    } catch (err) {
+      window.alert('カッピングデータの登録に失敗しました。')
+    }
   }
 
   return (
