@@ -11,7 +11,8 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest --watch"
+    "test": "jest",
+    "test-w": "jest --watch"
   },
   "engines": {
     "yarn": "Please use npm.",
