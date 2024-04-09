@@ -1,12 +1,12 @@
-/** @type {import('next').NextConfig} */
-module.exports = {
+const config = {
   reactStrictMode: true,
   output: 'standalone',
   experimental: {
     esmExternals: 'loose',
-    serverComponentsExternalPackages: ['mongoose'],
   },
   images: {
     domains: ['lh3.googleusercontent.com'],
   },
-}
+};
+
+export default config;

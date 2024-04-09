@@ -11,8 +11,9 @@ on:
       - main
 
 jobs:
-  lint-and-format:
+  lint-and-test:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
 
@@ -20,13 +21,15 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '20.10.0'
-          cache: 'yarn'
 
       - name: Install Dependencies
-        run: yarn upgrade && yarn install
+        run: npm ci
 
       - name: Run ESLint
-        run: yarn eslint
+        run: npm run eslint
 
       - name: Run Prettier Check
-        run: yarn format
+        run: npm run format
+
+      - name: Run Tests
+        run: npm test
