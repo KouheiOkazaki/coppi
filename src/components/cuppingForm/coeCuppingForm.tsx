@@ -11,24 +11,15 @@ const scoreOptions = [0, 2, 4, 5, 6, 6.5, 7, 7.5, 8]
 const CoeCuppingForm: React.FC = () => {
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm<CoeFormData>()
 
-  const onSubmit = async (data: CoeFormData) => {
-    console.log(data)
-    try {
-      await postFormAction(data)
-    } catch (err) {
-      window.alert('カッピングデータの登録に失敗しました。')
-    }
-  }
 
   return (
     <>
       <Timer />
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        action={postFormAction}
         className="space-y-4 p-4 max-w-xl mx-auto bg-white rounded-lg shadow"
       >
         <h2 className="text-2xl font-bold mb-4">Cupping Form</h2>
@@ -37,6 +28,7 @@ const CoeCuppingForm: React.FC = () => {
             Sample No:
           </label>
           <input
+          id='sampleNo'
             {...register('sampleNo', { required: true })}
             className="form-input px-4 py-2 border rounded-md"
           />
@@ -49,6 +41,7 @@ const CoeCuppingForm: React.FC = () => {
             Clean Cup
           </label>
           <select
+          id='cleanCup'
             {...register('cleanCup', { required: true })}
             className="form-select px-4 py-2 border rounded-md"
           >
@@ -64,6 +57,7 @@ const CoeCuppingForm: React.FC = () => {
             Sweet
           </label>
           <select
+          id='sweet'
             {...register('sweet', { required: true })}
             className="form-select px-4 py-2 border rounded-md"
           >
@@ -79,6 +73,7 @@ const CoeCuppingForm: React.FC = () => {
             Acidity
           </label>
           <select
+          id='acidity'
             {...register('acidity', { required: true })}
             className="form-select px-4 py-2 border rounded-md"
           >
@@ -94,6 +89,7 @@ const CoeCuppingForm: React.FC = () => {
             Mouthfeel
           </label>
           <select
+          id='mouthfeel'
             {...register('mouthfeel', { required: true })}
             className="form-select px-4 py-2 border rounded-md"
           >
@@ -109,6 +105,7 @@ const CoeCuppingForm: React.FC = () => {
             Fravor
           </label>
           <select
+          id='flavor'
             {...register('flavor', { required: true })}
             className="form-select px-4 py-2 border rounded-md"
           >
