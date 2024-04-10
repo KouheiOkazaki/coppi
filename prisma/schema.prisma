@@ -118,17 +118,17 @@ model CoeFormList {
 model CoeFormData {
   id            String       @id @default(cuid())
   sampleNo      String
-  roastLevel    String
-  aroma         Float
-  defects       Float
+  // roastLevel    String
+  // aroma         Float
+  // defects       Float
   cleanCup      Float
   sweet         Float
   acidity       Float
   mouthfeel     Float
   flavor        Float
-  aftertaste    Float
-  balance       Float
-  overall       Float
+  // aftertaste    Float
+  // balance       Float
+  // overall       Float
   createdAt     DateTime     @default(now())
 
   // Define a relationship to the CoeFormList model
