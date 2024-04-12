@@ -1,4 +1,4 @@
-import CoeCuppingForm from '@/src/components/cuppingForm/coeCuppingForm'
+import CoeCuppingForm from '@/src/components/cuppingForm/CoeCuppingForm'
 import React from 'react'
 
 const ParentComponent: React.FC = () => {
