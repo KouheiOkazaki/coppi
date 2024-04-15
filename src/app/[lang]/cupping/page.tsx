@@ -1,3 +1,4 @@
+'use client'
 import CoeCuppingForm from '@/src/components/cuppingForm/CoeCuppingForm'
 import React from 'react'
 

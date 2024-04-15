@@ -1,5 +1,4 @@
-'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import TabNavigation from '@/src/components/common/navigation/Navigation'
 import { useForm } from 'react-hook-form'
 import { CoeFormData } from '@/src/commons/types/type'
@@ -7,12 +6,24 @@ import Timer from '../timer/Timer'
 import { postFormAction } from './actions'
 
 const scoreOptions = [0, 2, 4, 5, 6, 6.5, 7, 7.5, 8]
+const roastOptions = [
+	{ level: 'ライトロースト', color: '#F5F5DC' }, // アグトロン値: 91≦
+	{ level: 'シナモンロースト', color: '#D2B48C' }, // アグトロン値: 81≦ and ≦ 90
+	{ level: 'ミディアムロースト', color: '#A0522D' }, // アグトロン値: 71≦ and ≦ 80
+	{ level: 'ハイロースト', color: '#8B4513' }, // アグトロン値: 61≦ and ≦ 70
+	{ level: 'シティロースト', color: '#8B4513' }, // アグトロン値: 51≦ and ≦ 60
+	{ level: 'フルシティロースト', color: '#603913' }, // アグトロン値: 41≦ and ≦ 50
+	{ level: 'フレンチロースト', color: '#2F4F4F' }, // アグトロン値: 31≦ and ≦ 40
+	{ level: 'イタリアンロースト', color: '#000000' }, // アグトロン値: ≦30
+]
 
 export default function CoeCuppingForm() {
 	const {
 		register,
 		formState: { errors },
 	} = useForm<CoeFormData>()
+
+	const [selectedRoastIndex, setSelectedRoastIndex] = useState<number>(0)
 
 	return (
 		<>
@@ -35,6 +46,31 @@ export default function CoeCuppingForm() {
 						className="form-input px-4 py-2 border rounded-md"
 					/>
 					{errors.sampleNo && (
+						<span className="text-red-500 text-sm">
+							This field is required
+						</span>
+					)}
+				</div>
+				<div className="flex flex-col">
+					<label htmlFor="roast" className="block mb-2 font-medium">
+						Roast:
+					</label>
+					<div className="flex justify-between items-center">
+						{roastOptions.map((option, index) => (
+							<button
+								key={option.level}
+								className={`roast-option ${selectedRoastIndex === index ? 'selected' : ''}`}
+								style={{ backgroundColor: option.color }}
+								onClick={() => setSelectedRoastIndex(index)}
+							></button>
+						))}
+					</div>
+					<input
+						type="hidden"
+						{...register('roastLevel', { required: true })}
+						value={roastOptions[selectedRoastIndex]?.level || ''}
+					/>
+					{errors.roastLevel && (
 						<span className="text-red-500 text-sm">
 							This field is required
 						</span>
@@ -74,6 +110,24 @@ export default function CoeCuppingForm() {
 				</button>
 			</form>
 			<TabNavigation />
+			<style jsx>{`
+				.roast-option {
+					width: calc(100% / ${roastOptions.length});
+					height: 40px;
+					cursor: pointer;
+					border: none;
+					outline: none;
+					transition: background-color 0.3s ease;
+					font-size: 14px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					color: #fff;
+				}
+				.roast-option.selected {
+					border: 2px solid #000;
+				}
+			`}</style>
 		</>
 	)
 }
