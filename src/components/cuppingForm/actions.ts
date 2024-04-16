@@ -11,7 +11,7 @@ export async function postFormAction(data: FormData) {
 		const formData: CoeFormData = {
 			// FormData から必要なプロパティを抽出する
 			sampleNo: data.get('sampleNo') as string,
-			roastLevel: data.get('roast') as string,
+			roastLevel: data.get('roastLevel') as string,
 			cleanCup: Number(data.get('cleanCup')),
 			sweet: Number(data.get('sweet')),
 			acidity: Number(data.get('acidity')),

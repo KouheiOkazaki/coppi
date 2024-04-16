@@ -52,17 +52,17 @@ export default function CoeCuppingForm() {
 					)}
 				</div>
 				<div className="flex flex-col">
-					<label htmlFor="roast" className="block mb-2 font-medium">
+					<label htmlFor="roastLevel" className="block mb-2 font-medium">
 						Roast:
 					</label>
 					<div className="flex justify-between items-center">
 						{roastOptions.map((option, index) => (
-							<button
+							<div
 								key={option.level}
 								className={`roast-option ${selectedRoastIndex === index ? 'selected' : ''}`}
 								style={{ backgroundColor: option.color }}
 								onClick={() => setSelectedRoastIndex(index)}
-							></button>
+							></div>
 						))}
 					</div>
 					<input
