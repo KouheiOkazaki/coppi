@@ -4,18 +4,7 @@ import { useForm } from 'react-hook-form'
 import { CoeFormData } from '@/src/commons/types/type'
 import Timer from '../timer/Timer'
 import { postFormAction } from './actions'
-
-const scoreOptions = [0, 2, 4, 5, 6, 6.5, 7, 7.5, 8]
-const roastOptions = [
-	{ level: 'ライトロースト', color: '#F5F5DC' }, // アグトロン値: 91≦
-	{ level: 'シナモンロースト', color: '#D2B48C' }, // アグトロン値: 81≦ and ≦ 90
-	{ level: 'ミディアムロースト', color: '#A0522D' }, // アグトロン値: 71≦ and ≦ 80
-	{ level: 'ハイロースト', color: '#8B4513' }, // アグトロン値: 61≦ and ≦ 70
-	{ level: 'シティロースト', color: '#8B4513' }, // アグトロン値: 51≦ and ≦ 60
-	{ level: 'フルシティロースト', color: '#603913' }, // アグトロン値: 41≦ and ≦ 50
-	{ level: 'フレンチロースト', color: '#2F4F4F' }, // アグトロン値: 31≦ and ≦ 40
-	{ level: 'イタリアンロースト', color: '#000000' }, // アグトロン値: ≦30
-]
+import { roastOptions, scoreOptions } from '@/src/commons/const/const'
 
 export default function CoeCuppingForm() {
 	const {
@@ -24,6 +13,9 @@ export default function CoeCuppingForm() {
 	} = useForm<CoeFormData>()
 
 	const [selectedRoastIndex, setSelectedRoastIndex] = useState<number>(0)
+	const [dryAromaValue, setDryAromaValue] = useState<number>(1)
+	const [crustAromaValue, setCrustAromaValue] = useState<number>(1)
+	const [breakAromaValue, setBreakAromaValue] = useState<number>(1)
 
 	return (
 		<>
@@ -52,7 +44,10 @@ export default function CoeCuppingForm() {
 					)}
 				</div>
 				<div className="flex flex-col">
-					<label htmlFor="roastLevel" className="block mb-2 font-medium">
+					<label
+						htmlFor="roastLevel"
+						className="block mb-2 font-medium"
+					>
 						Roast:
 					</label>
 					<div className="flex justify-between items-center">
@@ -75,6 +70,77 @@ export default function CoeCuppingForm() {
 							This field is required
 						</span>
 					)}
+				</div>
+				<div className="flex flex-col">
+					<label className="block mb-2 font-medium">Aroma:</label>
+					<div className="flex justify-between">
+						<div className="mr-4">
+							<label
+								htmlFor="dryAroma"
+								className="block mb-2 font-medium"
+							>
+								Dry Aroma:
+							</label>
+							<input
+								type="range"
+								id="dryAroma"
+								{...register('dryAroma', { required: true })}
+								min="1"
+								max="3"
+								value={dryAromaValue}
+								onChange={(e) =>
+									setDryAromaValue(parseInt(e.target.value))
+								}
+								className="appearance-none h-40 transform rotate-180"
+								style={{ writingMode: 'vertical-rl' }}
+							/>
+							<div className="text-center">{dryAromaValue}</div>
+						</div>
+						<div className="mr-4">
+							<label
+								htmlFor="crustAroma"
+								className="block mb-2 font-medium"
+							>
+								Crust Aroma:
+							</label>
+							<input
+								type="range"
+								id="crustAroma"
+								{...register('crustAroma', { required: true })}
+								min="1"
+								max="3"
+								value={crustAromaValue}
+								onChange={(e) =>
+									setCrustAromaValue(parseInt(e.target.value))
+								}
+								className="appearance-none h-40 transform rotate-180"
+								style={{ writingMode: 'vertical-rl' }}
+							/>
+							<div className="text-center">{crustAromaValue}</div>
+						</div>
+						<div>
+							<label
+								htmlFor="breakAroma"
+								className="block mb-2 font-medium"
+							>
+								Break Aroma:
+							</label>
+							<input
+								type="range"
+								id="breakAroma"
+								{...register('breakAroma', { required: true })}
+								min="1"
+								max="3"
+								value={breakAromaValue}
+								onChange={(e) =>
+									setBreakAromaValue(parseInt(e.target.value))
+								}
+								className="appearance-none h-40 transform rotate-180"
+								style={{ writingMode: 'vertical-rl' }}
+							/>
+							<div className="text-center">{breakAromaValue}</div>
+						</div>
+					</div>
 				</div>
 				{['cleanCup', 'sweet', 'acidity', 'mouthfeel', 'flavor'].map(
 					(fieldName) => (

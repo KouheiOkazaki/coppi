@@ -119,7 +119,9 @@ model CoeFormData {
   id            String       @id @default(cuid())
   sampleNo      String
   roastLevel    String
-  // aroma         Float
+  dryAroma      Float
+  crustAroma    Float
+  breakAroma    Float
   // defects       Float
   cleanCup      Float
   sweet         Float

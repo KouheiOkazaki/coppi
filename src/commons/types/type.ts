@@ -12,7 +12,9 @@ export type Dictionary = {
 export type CoeFormData = {
 	sampleNo: string
 	roastLevel: string
-	// aroma: number
+	dryAroma: number
+	crustAroma: number
+	breakAroma: number
 	// defects: number
 	cleanCup: number
 	sweet: number
