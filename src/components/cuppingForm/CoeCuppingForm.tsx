@@ -142,32 +142,76 @@ export default function CoeCuppingForm() {
 						</div>
 					</div>
 				</div>
-				{['cleanCup', 'sweet', 'acidity', 'mouthfeel', 'flavor'].map(
-					(fieldName) => (
-						<div className="flex flex-col" key={fieldName}>
-							<label
-								htmlFor={fieldName}
-								className="block mb-2 font-medium"
-							>
-								{fieldName.charAt(0).toUpperCase() +
-									fieldName.slice(1)}
-							</label>
-							<select
-								id={fieldName}
-								{...register(fieldName as keyof CoeFormData, {
-									required: true,
-								})}
-								className="form-select px-4 py-2 border rounded-md"
-							>
-								{scoreOptions.map((option) => (
-									<option key={option} value={option}>
-										{option}
-									</option>
-								))}
-							</select>
-						</div>
-					),
-				)}
+				<div className="flex flex-col">
+					<label className="block mb-2 font-medium">Clean Cup:</label>
+					<select
+						id="cleanCup"
+						{...register('cleanCup', { required: true })}
+						className="form-select px-4 py-2 border rounded-md"
+					>
+						{scoreOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+				<div className="flex flex-col">
+					<label className="block mb-2 font-medium">Sweet:</label>
+					<select
+						id="sweet"
+						{...register('sweet', { required: true })}
+						className="form-select px-4 py-2 border rounded-md"
+					>
+						{scoreOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+				<div className="flex flex-col">
+					<label className="block mb-2 font-medium">Acidity:</label>
+					<select
+						id="acidity"
+						{...register('acidity', { required: true })}
+						className="form-select px-4 py-2 border rounded-md"
+					>
+						{scoreOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+				<div className="flex flex-col">
+					<label className="block mb-2 font-medium">Mouthfeel:</label>
+					<select
+						id="mouthfeel"
+						{...register('mouthfeel', { required: true })}
+						className="form-select px-4 py-2 border rounded-md"
+					>
+						{scoreOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
+				<div className="flex flex-col">
+					<label className="block mb-2 font-medium">Flavor:</label>
+					<select
+						id="flavor"
+						{...register('flavor', { required: true })}
+						className="form-select px-4 py-2 border rounded-md"
+					>
+						{scoreOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+				</div>
 				<button
 					type="submit"
 					className="mt-4 px-4 py-2 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition duration-200"
