@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import TabNavigation from '@/src/components/common/navigation/Navigation'
 import { useForm } from 'react-hook-form'
 import { CoeFormData } from '@/src/commons/types/type'
-import Timer from '../timer/Timer'
+
 import { postFormAction } from './actions'
 import { roastOptions, scoreOptions } from '@/src/commons/const/const'
+import Timer from '../../timer/Timer'
+import SensorySelector from '../sensorySelector/SensorySelector'
 
 export default function CoeCuppingForm() {
 	const {
@@ -62,6 +64,7 @@ export default function CoeCuppingForm() {
 					</div>
 					<input
 						type="hidden"
+						id="roatLevel"
 						{...register('roastLevel', { required: true })}
 						value={roastOptions[selectedRoastIndex]?.level || ''}
 					/>
@@ -170,48 +173,13 @@ export default function CoeCuppingForm() {
 						))}
 					</select>
 				</div>
-				<div className="flex flex-col">
-					<label className="block mb-2 font-medium">Acidity:</label>
-					<select
-						id="acidity"
-						{...register('acidity', { required: true })}
-						className="form-select px-4 py-2 border rounded-md"
-					>
-						{scoreOptions.map((option) => (
-							<option key={option} value={option}>
-								{option}
-							</option>
-						))}
-					</select>
-				</div>
-				<div className="flex flex-col">
-					<label className="block mb-2 font-medium">Mouthfeel:</label>
-					<select
-						id="mouthfeel"
-						{...register('mouthfeel', { required: true })}
-						className="form-select px-4 py-2 border rounded-md"
-					>
-						{scoreOptions.map((option) => (
-							<option key={option} value={option}>
-								{option}
-							</option>
-						))}
-					</select>
-				</div>
-				<div className="flex flex-col">
-					<label className="block mb-2 font-medium">Flavor:</label>
-					<select
-						id="flavor"
-						{...register('flavor', { required: true })}
-						className="form-select px-4 py-2 border rounded-md"
-					>
-						{scoreOptions.map((option) => (
-							<option key={option} value={option}>
-								{option}
-							</option>
-						))}
-					</select>
-				</div>
+				<label className="block mb-2 font-medium">Acidity:</label>
+				<SensorySelector id="acidity" options={scoreOptions} register={register} />
+				<label className="block mb-2 font-medium">Mouthfeel:</label>
+				<SensorySelector id="mouthfeel" options={scoreOptions} register={register} />
+				<label className="block mb-2 font-medium">Flavor</label>
+				<SensorySelector id="flavor" options={scoreOptions} register={register} />
+	
 				<button
 					type="submit"
 					className="mt-4 px-4 py-2 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition duration-200"
