@@ -145,34 +145,10 @@ export default function CoeCuppingForm() {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col">
-					<label className="block mb-2 font-medium">Clean Cup:</label>
-					<select
-						id="cleanCup"
-						{...register('cleanCup', { required: true })}
-						className="form-select px-4 py-2 border rounded-md"
-					>
-						{scoreOptions.map((option) => (
-							<option key={option} value={option}>
-								{option}
-							</option>
-						))}
-					</select>
-				</div>
-				<div className="flex flex-col">
-					<label className="block mb-2 font-medium">Sweet:</label>
-					<select
-						id="sweet"
-						{...register('sweet', { required: true })}
-						className="form-select px-4 py-2 border rounded-md"
-					>
-						{scoreOptions.map((option) => (
-							<option key={option} value={option}>
-								{option}
-							</option>
-						))}
-					</select>
-				</div>
+				<label className="block mb-2 font-medium">CleanCup:</label>
+				<SensorySelector id="cleanCup" options={scoreOptions} register={register} />
+				<label className="block mb-2 font-medium">Sweet:</label>
+				<SensorySelector id="sweet" options={scoreOptions} register={register} />
 				<label className="block mb-2 font-medium">Acidity:</label>
 				<SensorySelector id="acidity" options={scoreOptions} register={register} />
 				<label className="block mb-2 font-medium">Mouthfeel:</label>
