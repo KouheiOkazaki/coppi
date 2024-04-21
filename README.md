@@ -33,6 +33,9 @@ With the widespread adoption of this application, I am confident that it will in
 - **GitHub Actions**: Continuous integration and deployment workflow automation.
 - **Vercel**: Platform for deploying web applications.
 
+### Container
+- **Docker**: Platform for developing, shipping, and running applications using containerization.
+
 ## Product
 - [Application Link](https://coppi.vercel.app/)
 ## Manual
