@@ -64,7 +64,7 @@ export default function CoeCuppingForm() {
 					</div>
 					<input
 						type="hidden"
-						id="roatLevel"
+						id="roastLevel"
 						{...register('roastLevel', { required: true })}
 						value={roastOptions[selectedRoastIndex]?.level || ''}
 					/>
