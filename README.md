@@ -41,8 +41,6 @@ With the widespread adoption of this application, I am confident that it will in
 ## Manual
 - [Docs](https://ko-hi-san.notion.site/Cupping-App-Documentation-100b8e1cb91547089d0b37b9a02badab?pvs=4)
 
-- [Figma Design](https://www.figma.com/file/6kzvtit0ez6ZIMHCMrBZ7e/Design?type=design&node-id=0%3A1&mode=design&t=p42RhGSb196wqjx8-1)
-
 
 ## ~~ Japanese Below ~~
 ## アプリケーション概要
