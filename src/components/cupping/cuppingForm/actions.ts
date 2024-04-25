@@ -12,6 +12,9 @@ export async function postFormAction(data: FormData) {
 			// FormData から必要なプロパティを抽出する
 			sampleNo: data.get('sampleNo') as string,
 			roastLevel: data.get('roastLevel') as string,
+			dryAroma: Number(data.get('dryAroma')),
+			crustAroma: Number(data.get('crustAroma')),
+			breakAroma: Number(data.get('breakAroma')),
 			cleanCup: Number(data.get('cleanCup')),
 			sweet: Number(data.get('sweet')),
 			acidity: Number(data.get('acidity')),

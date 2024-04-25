@@ -1,5 +1,5 @@
 'use client'
-import CoeCuppingForm from '@/src/components/cuppingForm/CoeCuppingForm'
+import CoeCuppingForm from '@/src/components/cupping/cuppingForm/CoeCuppingForm'
 import React from 'react'
 
 export default function ParentComponent() {
