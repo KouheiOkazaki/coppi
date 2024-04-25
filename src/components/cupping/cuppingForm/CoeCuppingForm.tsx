@@ -146,16 +146,36 @@ export default function CoeCuppingForm() {
 					</div>
 				</div>
 				<label className="block mb-2 font-medium">CleanCup:</label>
-				<SensorySelector id="cleanCup" options={scoreOptions} register={register} />
+				<SensorySelector
+					id="cleanCup"
+					options={scoreOptions}
+					register={register}
+				/>
 				<label className="block mb-2 font-medium">Sweet:</label>
-				<SensorySelector id="sweet" options={scoreOptions} register={register} />
+				<SensorySelector
+					id="sweet"
+					options={scoreOptions}
+					register={register}
+				/>
 				<label className="block mb-2 font-medium">Acidity:</label>
-				<SensorySelector id="acidity" options={scoreOptions} register={register} />
+				<SensorySelector
+					id="acidity"
+					options={scoreOptions}
+					register={register}
+				/>
 				<label className="block mb-2 font-medium">Mouthfeel:</label>
-				<SensorySelector id="mouthfeel" options={scoreOptions} register={register} />
+				<SensorySelector
+					id="mouthfeel"
+					options={scoreOptions}
+					register={register}
+				/>
 				<label className="block mb-2 font-medium">Flavor</label>
-				<SensorySelector id="flavor" options={scoreOptions} register={register} />
-	
+				<SensorySelector
+					id="flavor"
+					options={scoreOptions}
+					register={register}
+				/>
+
 				<button
 					type="submit"
 					className="mt-4 px-4 py-2 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition duration-200"
