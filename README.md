@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Coffee Cupping App](public/cupping.jpg)
 
-## Getting Started
+## Application Overview
+This is a web application service for conducting quality evaluations through coffee cupping. Users can review their cupping history, freeing themselves from the struggles of paper-based management.
 
-First, run the development server:
+## Coffee Cupping App
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Cupping is a globally recognized method for objectively evaluating the quality of coffee. It allows for the assessment of both the quality of green beans and the roasting process, thereby facilitating approaches to enhance coffee bean quality. Cupping involves comparing the flavors and characteristics of coffee from different origins and processing methods, providing valuable information for producers and roasters to work on quality improvement. It also serves as a guide for consumers in selecting coffee that suits their preferences and needs. Cupping plays a crucial role in promoting quality control and improvement in the coffee industry, supporting sustainable growth.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Reason for Creating the Cupping App
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The technique of cupping is becoming a standard practice among baristas in the coffee industry. Furthermore, specialized world championships dedicated to cupping are now being held, establishing the importance of this technique in evaluating coffee quality. Feeling the necessity to transition from inefficient paper-based cupping forms to web-based platforms, I have embarked on creating a cupping application tailored for consumers. By doing so, I aim to democratize cupping techniques, which were previously primarily available for businesses, making it accessible to anyone interested in coffee
+With the widespread adoption of this application, I am confident that it will increase interest in coffee quality, leading to overall improvement in the quality of coffee within the industry. Ultimately, I believe it will contribute to the enhancement of profits and living standards for coffee farms and stakeholders.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Technology Stack
+### Frontend
+- **Next.js**: React framework for server-side rendered and static web applications.
+- **Typescript**: Superset of JavaScript with static typing for improved code quality.
+- **TailwindCSS**: Utility-first CSS framework for rapid UI development.
+- **Storybook**: Tool for developing UI components in isolation.
 
-## Learn More
+### Testing
+- **Jest**: JavaScript testing framework for unit testing.
+- **React Testing Library**: Testing utility for testing React components.
 
-To learn more about Next.js, take a look at the following resources:
+### Backend & Database
+- **Next-auth**: Authentication library for Next.js applications.
+- **Supabase**: Open-source Firebase alternative with a suite of backend tools.
+- **Prisma**: ORM tool for Node.js and TypeScript.
+- **PostgreSQL**: Powerful open-source relational database management system.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Deployment & CI/CD
+- **GitHub Actions**: Continuous integration and deployment workflow automation.
+- **Vercel**: Platform for deploying web applications.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Container
+- **Docker**: Platform for developing, shipping, and running applications using containerization.
 
-## Deploy on Vercel
+## Product
+- [Application Link](https://coppi.vercel.app/)
+## Manual
+- [Docs](https://ko-hi-san.notion.site/Cupping-App-Documentation-100b8e1cb91547089d0b37b9a02badab?pvs=4)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## ~~ Japanese Below ~~
+## アプリケーション概要
+コーヒーカッピングという品質評価を行うためのWEBアプリケーションサービスです。
+これまでのカッピング履歴を確認でき、これまでの紙で管理していた苦労から解放されます。
+
+## コーヒーカッピングとは
+カッピングは、コーヒーの品質を客観的に評価するための世界標準の手法です。生豆品質や焙煎品質を評価することで、コーヒー豆の品質向上につながります。カッピングは、異なる産地や処理方法によるコーヒーの風味や特性を比較し、生産者や焙煎業者が品質改善に取り組むための情報を提供します。また、消費者にとっても、好みやニーズに合ったコーヒーを選択する際の指標となります。カッピングは、コーヒー産業において品質管理と向上を促進し、持続可能な成長を支える重要な手法です。
+
+## なぜカッピングアプリを制作するのか
+カッピングという技術は、現在、コーヒー業界で働くバリスタの間で標準的な手法となりつつあります。さらに、現在では、カッピングに特化した世界大会も開催され、この技術の重要性がコーヒーの品質評価において確立されています。非効率な紙ベースのカッピングフォームをWEBベースに移行していくことの必要性を感じており、toC向けのカッピングアプリケーションの制作によって、これまでtoB向けにしか提供されておらず普及しづらかったカッピング技術をより一般化し、コーヒーに関心のあるすべての人がカッピングを容易に行うことができるようになります。
+
+このアプリケーションの普及により、コーヒーの品質に対する関心が高まり、業界全体のコーヒーの品質向上につながると確信しています。最終的には、コーヒー農園やコーヒー関係者の利益向上や生活水準向上に貢献することができると考えています。
