@@ -1,45 +1,38 @@
-import { CoeFormData } from '@/src/commons/types/type'
-import React from 'react'
-import { UseFormRegister } from 'react-hook-form'
+import React, { useState } from 'react'
+import { scoreOptions } from '@/src/commons/const/const'
+import { SensorySelectorProps } from '@/src/commons/types/type'
 
-interface SensorySelectorProps {
-	id:
-		| 'sampleNo'
-		| 'roastLevel'
-		| 'dryAroma'
-		| 'crustAroma'
-		| 'breakAroma'
-		| 'cleanCup'
-		| 'sweet'
-		| 'acidity'
-		| 'mouthfeel'
-		| 'flavor'
-	options: number[]
-	register: UseFormRegister<CoeFormData>
-}
+export default function SensorySlider({ id, register }: SensorySelectorProps) {
+	const [selectedValue, setSelectedValue] = useState(scoreOptions[0])
 
-export default function SensorySelector({
-	id,
-	options,
-	register,
-}: SensorySelectorProps) {
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const newValue = parseFloat(event.target.value)
+		if (![0.5, 1.5, 2.5, 3.5, 4.5, 5.5].includes(newValue)) {
+			setSelectedValue(newValue)
+		}
+	}
+
 	return (
 		<div className="flex flex-col">
-			<select
+			<input
+				type="range"
 				id={id}
-				{...register(id, { required: true })} // 修正点: フィールドの名前を指定する
-				className="form-select px-4 py-2 border rounded-md"
-			>
-				{options.map((option) => (
-					<option
-						key={option}
-						value={option}
-						data-testid={`option-${option}`}
-					>
-						{option}
-					</option>
+				{...register(id, { required: true })}
+				className="form-range"
+				min={scoreOptions[0]} // 最小値をscoreOptionsの最初の値に設定
+				max={scoreOptions[scoreOptions.length - 1]} // 最大値をscoreOptionsの最後の値に設定
+				step="0.5" // ステップを適切な値に設定
+				list="tickmarks" // スライダーの値のリストを使用する
+				value={selectedValue} // 選択された値を表示
+				onChange={handleChange} // 値が変更された時の処理
+			/>
+			<datalist id="tickmarks">
+				{' '}
+				{/* リストを作成 */}
+				{scoreOptions.map((option) => (
+					<option key={option} value={option} />
 				))}
-			</select>
+			</datalist>
 		</div>
 	)
 }

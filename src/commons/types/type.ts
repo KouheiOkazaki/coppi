@@ -1,3 +1,5 @@
+import { UseFormRegister } from 'react-hook-form'
+
 export type CuppingResult = {
 	id: number
 	date: string
@@ -24,4 +26,12 @@ export type CoeFormData = {
 	// aftertaste: number
 	// balance: number
 	// overall: number
+}
+
+export type SensorySelectorProps = {
+	id: 'cleanCup' | 'sweet' | 'acidity' | 'mouthfeel' | 'flavor'
+	// | 'afterTaste'
+	// | 'balance'
+	// | 'overall'
+	register: UseFormRegister<CoeFormData>
 }
