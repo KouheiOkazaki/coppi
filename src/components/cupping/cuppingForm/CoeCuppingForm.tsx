@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import TabNavigation from '@/src/components/common/navigation/Navigation'
 import { useForm } from 'react-hook-form'
 import { CoeFormData } from '@/src/commons/types/type'
-
 import { postFormAction } from './actions'
-import { roastOptions, scoreOptions } from '@/src/commons/const/const'
+import { roastOptions } from '@/src/commons/const/const'
 import Timer from '../../timer/Timer'
 import SensorySelector from '../sensorySelector/SensorySelector'
 
@@ -146,35 +145,21 @@ export default function CoeCuppingForm() {
 					</div>
 				</div>
 				<label className="block mb-2 font-medium">CleanCup:</label>
-				<SensorySelector
-					id="cleanCup"
-					options={scoreOptions}
-					register={register}
-				/>
+				<SensorySelector id="cleanCup" register={register} />
 				<label className="block mb-2 font-medium">Sweet:</label>
-				<SensorySelector
-					id="sweet"
-					options={scoreOptions}
-					register={register}
-				/>
+				<SensorySelector id="sweet" register={register} />
 				<label className="block mb-2 font-medium">Acidity:</label>
-				<SensorySelector
-					id="acidity"
-					options={scoreOptions}
-					register={register}
-				/>
+				<SensorySelector id="acidity" register={register} />
 				<label className="block mb-2 font-medium">Mouthfeel:</label>
-				<SensorySelector
-					id="mouthfeel"
-					options={scoreOptions}
-					register={register}
-				/>
-				<label className="block mb-2 font-medium">Flavor</label>
-				<SensorySelector
-					id="flavor"
-					options={scoreOptions}
-					register={register}
-				/>
+				<SensorySelector id="mouthfeel" register={register} />
+				<label className="block mb-2 font-medium">Flavor:</label>
+				<SensorySelector id="flavor" register={register} />
+				<label className="block mb-2 font-medium">Aftertaste:</label>
+				<SensorySelector id="aftertaste" register={register} />
+				<label className="block mb-2 font-medium">Balance:</label>
+				<SensorySelector id="balance" register={register} />
+				<label className="block mb-2 font-medium">Overall:</label>
+				<SensorySelector id="overall" register={register} />
 
 				<button
 					type="submit"

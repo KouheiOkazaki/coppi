@@ -128,9 +128,9 @@ model CoeFormData {
   acidity       Float
   mouthfeel     Float
   flavor        Float
-  // aftertaste    Float
-  // balance       Float
-  // overall       Float
+  aftertaste    Float
+  balance       Float
+  overall       Float
   createdAt     DateTime     @default(now())
 
   // Define a relationship to the CoeFormList model
