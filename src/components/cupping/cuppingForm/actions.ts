@@ -22,6 +22,9 @@ export async function postFormAction(data: FormData) {
 			acidity: Number(data.get('acidity')),
 			mouthfeel: Number(data.get('mouthfeel')),
 			flavor: Number(data.get('flavor')),
+			aftertaste: Number(data.get('aftertaste')),
+			balance: Number(data.get('balance')),
+			overall: Number(data.get('overall')),
 		}
 
 		// 新しいオブジェクトを作成し、prisma.coeFormData.create() に渡す

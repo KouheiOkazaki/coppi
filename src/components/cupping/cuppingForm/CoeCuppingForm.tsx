@@ -152,8 +152,14 @@ export default function CoeCuppingForm() {
 				<SensorySelector id="acidity" register={register} />
 				<label className="block mb-2 font-medium">Mouthfeel:</label>
 				<SensorySelector id="mouthfeel" register={register} />
-				<label className="block mb-2 font-medium">Flavor</label>
+				<label className="block mb-2 font-medium">Flavor:</label>
 				<SensorySelector id="flavor" register={register} />
+				<label className="block mb-2 font-medium">Aftertaste:</label>
+				<SensorySelector id="aftertaste" register={register} />
+				<label className="block mb-2 font-medium">Balance:</label>
+				<SensorySelector id="balance" register={register} />
+				<label className="block mb-2 font-medium">Overall:</label>
+				<SensorySelector id="overall" register={register} />
 
 				<button
 					type="submit"
