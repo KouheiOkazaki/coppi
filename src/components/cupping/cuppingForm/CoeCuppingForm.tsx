@@ -6,6 +6,7 @@ import { postFormAction } from './actions'
 import { roastOptions } from '@/src/commons/const/const'
 import Timer from '../../timer/Timer'
 import SensorySelector from '../sensorySelector/SensorySelector'
+import CupProfile from '../cupProfile/CupProfile'
 
 export default function CoeCuppingForm() {
 	const {
@@ -146,6 +147,7 @@ export default function CoeCuppingForm() {
 				</div>
 				<label className="block mb-2 font-medium">CleanCup:</label>
 				<SensorySelector id="cleanCup" register={register} />
+				<CupProfile />
 				<label className="block mb-2 font-medium">Sweet:</label>
 				<SensorySelector id="sweet" register={register} />
 				<label className="block mb-2 font-medium">Acidity:</label>
