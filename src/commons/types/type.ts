@@ -19,6 +19,7 @@ export type CoeFormData = {
 	breakAroma: number
 	// defects: number
 	cleanCup: number
+	// cleanCupSelector: string[]
 	sweet: number
 	acidity: number
 	mouthfeel: number
