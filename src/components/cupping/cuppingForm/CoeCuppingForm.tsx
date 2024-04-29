@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
 import TabNavigation from '@/src/components/common/navigation/Navigation'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { CoeFormData } from '@/src/commons/types/type'
 import { postFormAction } from './actions'
-import { roastOptions } from '@/src/commons/const/const'
+import { cleanCupProfileOptions, roastOptions } from '@/src/commons/const/const'
 import Timer from '../../timer/Timer'
 import SensorySelector from '../sensorySelector/SensorySelector'
-import CupProfile from '../cupProfile/CupProfile'
+import Select from 'react-select'
 
 export default function CoeCuppingForm() {
 	const {
 		register,
+		control,
 		formState: { errors },
-	} = useForm<CoeFormData>()
+	} = useForm<CoeFormData>({
+		defaultValues: {
+			cleanCupProfiles: [''],
+		},
+	})
 
 	const [selectedRoastIndex, setSelectedRoastIndex] = useState<number>(0)
 	const [dryAromaValue, setDryAromaValue] = useState<number>(1)
@@ -147,7 +152,25 @@ export default function CoeCuppingForm() {
 				</div>
 				<label className="block mb-2 font-medium">CleanCup:</label>
 				<SensorySelector id="cleanCup" register={register} />
-				<CupProfile />
+				<div>
+					<Controller
+						name="cleanCupProfiles"
+						control={control}
+						render={({ field }) => (
+							<Select
+								options={cleanCupProfileOptions}
+								value={cleanCupProfileOptions.filter((x) =>
+									field.value.includes(x.value),
+								)}
+								onChange={(newValue) => {
+									field.onChange(newValue.map((x) => x.value))
+								}}
+								isMulti
+							/>
+						)}
+					/>
+				</div>
+
 				<label className="block mb-2 font-medium">Sweet:</label>
 				<SensorySelector id="sweet" register={register} />
 				<label className="block mb-2 font-medium">Acidity:</label>

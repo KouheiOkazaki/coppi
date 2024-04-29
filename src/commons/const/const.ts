@@ -10,3 +10,28 @@ export const roastOptions = [
 	{ level: 'フレンチロースト', color: '#2F4F4F' }, // アグトロン値: 31≦ and ≦ 40
 	{ level: 'イタリアンロースト', color: '#000000' }, // アグトロン値: ≦30
 ]
+
+export const cleanCupProfileOptions = [
+	{ value: 'Clean', label: 'Clean' },
+	{ value: 'Clear', label: 'Clear' },
+	{ value: 'Super Clean', label: 'Super Clean' },
+	{ value: 'Transparent', label: 'Transparent' },
+	{ value: 'Refine', label: 'Refine' },
+	{ value: 'Definition', label: 'Definition' },
+	{ value: 'Unclean', label: 'Unclean' },
+	{ value: 'Rough', label: 'Rough' },
+	{ value: 'Dusty', label: 'Dusty' },
+	{ value: 'Dirty', label: 'Dirty' },
+	{ value: 'Faded', label: 'Faded' },
+	{ value: 'Woody', label: 'Woody' },
+	{ value: 'Verde', label: 'Verde' },
+	{ value: 'Grassy', label: 'Grassy' },
+	{ value: 'Strawy', label: 'Strawy' },
+	{ value: 'Astringent', label: 'Astringent' },
+	{ value: 'Ashy', label: 'Ashy' },
+	{ value: 'Moldy', label: 'Moldy' },
+	{ value: 'Phenol', label: 'Phenol' },
+	{ value: 'Earthy', label: 'Earthy' },
+	{ value: 'Baggy', label: 'Baggy' },
+	{ value: 'Fermented', label: 'Fermented' },
+];
