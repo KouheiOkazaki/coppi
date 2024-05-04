@@ -15,7 +15,7 @@ export default function CoeCuppingForm() {
 		formState: { errors },
 	} = useForm<CoeFormData>({
 		defaultValues: {
-			cleanCupProfiles: [''],
+			cleanCupProfiles: [],
 		},
 	})
 
@@ -158,12 +158,16 @@ export default function CoeCuppingForm() {
 						control={control}
 						render={({ field }) => (
 							<Select
+								{...field}
 								options={cleanCupProfileOptions}
-								value={cleanCupProfileOptions.filter((x) =>
-									field.value.includes(x.value),
+								value={cleanCupProfileOptions.filter((option) =>
+									field.value.includes(option.value),
 								)}
-								onChange={(newValue) => {
-									field.onChange(newValue.map((x) => x.value))
+								onChange={(selectedOptions) => {
+									const selectedValues = selectedOptions.map(
+										(option) => option.value,
+									)
+									field.onChange(selectedValues)
 								}}
 								isMulti
 							/>

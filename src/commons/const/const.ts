@@ -34,4 +34,4 @@ export const cleanCupProfileOptions = [
 	{ value: 'Earthy', label: 'Earthy' },
 	{ value: 'Baggy', label: 'Baggy' },
 	{ value: 'Fermented', label: 'Fermented' },
-]
+];

@@ -19,9 +19,7 @@ export async function postFormAction(data: FormData) {
 			crustAroma: Number(data.get('crustAroma')),
 			breakAroma: Number(data.get('breakAroma')),
 			cleanCup: Number(data.get('cleanCup')),
-			cleanCupProfiles: String(data.get('cleanCupProfiles') || '').split(
-				',',
-			) as string[],
+			cleanCupProfiles: (data.getAll('cleanCupProfiles')) as string[],
 			sweet: Number(data.get('sweet')),
 			acidity: Number(data.get('acidity')),
 			mouthfeel: Number(data.get('mouthfeel')),
