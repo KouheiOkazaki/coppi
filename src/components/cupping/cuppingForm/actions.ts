@@ -21,6 +21,7 @@ export async function postFormAction(data: FormData) {
 			cleanCup: Number(data.get('cleanCup')),
 			cleanCupProfiles: (data.getAll('cleanCupProfiles')) as string[],
 			sweet: Number(data.get('sweet')),
+			sweetnessProfiles: (data.getAll('sweetnessProfiles')) as string[],
 			acidity: Number(data.get('acidity')),
 			mouthfeel: Number(data.get('mouthfeel')),
 			flavor: Number(data.get('flavor')),

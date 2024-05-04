@@ -126,6 +126,7 @@ model CoeFormData {
   cleanCup      Float
   cleanCupProfiles  String[]
   sweet         Float
+  sweetnessProfiles  String[]
   acidity       Float
   mouthfeel     Float
   flavor        Float
