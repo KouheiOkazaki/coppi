@@ -1,17 +1,27 @@
 import React, { useState } from 'react'
 import TabNavigation from '@/src/components/common/navigation/Navigation'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { CoeFormData } from '@/src/commons/types/type'
 import { postFormAction } from './actions'
-import { roastOptions } from '@/src/commons/const/const'
+import {
+	cleanCupOptions,
+	roastOptions,
+	sweetnessOptions,
+} from '@/src/commons/const/const'
 import Timer from '../../timer/Timer'
 import SensorySelector from '../sensorySelector/SensorySelector'
+import Select from 'react-select'
 
 export default function CoeCuppingForm() {
 	const {
 		register,
+		control,
 		formState: { errors },
-	} = useForm<CoeFormData>()
+	} = useForm<CoeFormData>({
+		defaultValues: {
+			cleanCupProfiles: [],
+		},
+	})
 
 	const [selectedRoastIndex, setSelectedRoastIndex] = useState<number>(0)
 	const [dryAromaValue, setDryAromaValue] = useState<number>(1)
@@ -146,8 +156,66 @@ export default function CoeCuppingForm() {
 				</div>
 				<label className="block mb-2 font-medium">CleanCup:</label>
 				<SensorySelector id="cleanCup" register={register} />
+				<Controller
+					name="cleanCupProfiles"
+					control={control}
+					render={({ field }) => (
+						<Select
+							{...field}
+							options={cleanCupOptions}
+							value={cleanCupOptions.filter((option) =>
+								field.value.includes(option.value),
+							)}
+							onChange={(selectedOptions) => {
+								const selectedValues = selectedOptions.map(
+									(option) => option.value,
+								)
+								field.onChange(selectedValues)
+							}}
+							isMulti
+							styles={{
+								option: (provided, state) => ({
+									...provided,
+									color: state.data.color,
+								}),
+							}}
+						/>
+					)}
+				/>
+
 				<label className="block mb-2 font-medium">Sweet:</label>
 				<SensorySelector id="sweet" register={register} />
+				<Controller
+					name="sweetnessProfiles"
+					control={control}
+					render={({ field }) => (
+						<Select
+							{...field}
+							options={sweetnessOptions}
+							value={
+								field.value
+									? sweetnessOptions.filter((option) =>
+											field.value.includes(option.value),
+										)
+									: []
+							}
+							onChange={(selectedOptions) => {
+								const selectedValues = selectedOptions.map(
+									(option) => option.value,
+								)
+								field.onChange(selectedValues)
+							}}
+							isMulti
+							styles={{
+								option: (provided, state) => ({
+									...provided,
+									color: state.data.color,
+								}),
+							}}
+						/>
+					)}
+				/>
+
 				<label className="block mb-2 font-medium">Acidity:</label>
 				<SensorySelector id="acidity" register={register} />
 				<label className="block mb-2 font-medium">Mouthfeel:</label>

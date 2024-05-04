@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation'
 const prisma = new PrismaClient()
 
 export async function postFormAction(data: FormData) {
+	console.log('serveraction', data)
 	let redirectRequested = false // リダイレクトするかの判定フラグ
 	try {
 		const formData: CoeFormData = {
@@ -18,7 +19,9 @@ export async function postFormAction(data: FormData) {
 			crustAroma: Number(data.get('crustAroma')),
 			breakAroma: Number(data.get('breakAroma')),
 			cleanCup: Number(data.get('cleanCup')),
+			cleanCupProfiles: (data.getAll('cleanCupProfiles')) as string[],
 			sweet: Number(data.get('sweet')),
+			sweetnessProfiles: (data.getAll('sweetnessProfiles')) as string[],
 			acidity: Number(data.get('acidity')),
 			mouthfeel: Number(data.get('mouthfeel')),
 			flavor: Number(data.get('flavor')),
