@@ -4,7 +4,13 @@ import { Controller, useForm } from 'react-hook-form'
 import { CoeFormData } from '@/src/commons/types/type'
 import { postFormAction } from './actions'
 import {
+	acidityOptions,
+	aftertasteOptions,
+	balanceOptions,
 	cleanCupOptions,
+	flavorOptions,
+	mouthfeelOptions,
+	overallOptions,
 	roastOptions,
 	sweetnessOptions,
 } from '@/src/commons/const/const'
@@ -218,17 +224,196 @@ export default function CoeCuppingForm() {
 
 				<label className="block mb-2 font-medium">Acidity:</label>
 				<SensorySelector id="acidity" register={register} />
+				<Controller
+					name="acidityProfiles"
+					control={control}
+					render={({ field }) => (
+						<Select
+							{...field}
+							options={acidityOptions}
+							value={
+								field.value
+									? acidityOptions.filter((option) =>
+											field.value.includes(option.value),
+										)
+									: []
+							}
+							onChange={(selectedOptions) => {
+								const selectedValues = selectedOptions.map(
+									(option) => option.value,
+								)
+								field.onChange(selectedValues)
+							}}
+							isMulti
+							styles={{
+								option: (provided, state) => ({
+									...provided,
+									color: state.data.color,
+								}),
+							}}
+						/>
+					)}
+				/>
 				<label className="block mb-2 font-medium">Mouthfeel:</label>
 				<SensorySelector id="mouthfeel" register={register} />
+				<Controller
+					name="mouthfeelProfiles"
+					control={control}
+					render={({ field }) => (
+						<Select
+							{...field}
+							options={mouthfeelOptions}
+							value={
+								field.value
+									? mouthfeelOptions.filter((option) =>
+											field.value.includes(option.value),
+										)
+									: []
+							}
+							onChange={(selectedOptions) => {
+								const selectedValues = selectedOptions.map(
+									(option) => option.value,
+								)
+								field.onChange(selectedValues)
+							}}
+							isMulti
+							styles={{
+								option: (provided, state) => ({
+									...provided,
+									color: state.data.color,
+								}),
+							}}
+						/>
+					)}
+				/>
 				<label className="block mb-2 font-medium">Flavor:</label>
 				<SensorySelector id="flavor" register={register} />
+				<Controller
+					name="flavorProfiles"
+					control={control}
+					render={({ field }) => (
+						<Select
+							{...field}
+							options={flavorOptions}
+							value={
+								field.value
+									? flavorOptions.filter((option) =>
+											field.value.includes(option.value),
+										)
+									: []
+							}
+							onChange={(selectedOptions) => {
+								const selectedValues = selectedOptions.map(
+									(option) => option.value,
+								)
+								field.onChange(selectedValues)
+							}}
+							isMulti
+							styles={{
+								option: (provided, state) => ({
+									...provided,
+									color: state.data.color,
+								}),
+							}}
+						/>
+					)}
+				/>
 				<label className="block mb-2 font-medium">Aftertaste:</label>
 				<SensorySelector id="aftertaste" register={register} />
+				<Controller
+					name="aftertasteProfiles"
+					control={control}
+					render={({ field }) => (
+						<Select
+							{...field}
+							options={aftertasteOptions}
+							value={
+								field.value
+									? aftertasteOptions.filter((option) =>
+											field.value.includes(option.value),
+										)
+									: []
+							}
+							onChange={(selectedOptions) => {
+								const selectedValues = selectedOptions.map(
+									(option) => option.value,
+								)
+								field.onChange(selectedValues)
+							}}
+							isMulti
+							styles={{
+								option: (provided, state) => ({
+									...provided,
+									color: state.data.color,
+								}),
+							}}
+						/>
+					)}
+				/>
 				<label className="block mb-2 font-medium">Balance:</label>
 				<SensorySelector id="balance" register={register} />
+				<Controller
+					name="balanceProfiles"
+					control={control}
+					render={({ field }) => (
+						<Select
+							{...field}
+							options={balanceOptions}
+							value={
+								field.value
+									? balanceOptions.filter((option) =>
+											field.value.includes(option.value),
+										)
+									: []
+							}
+							onChange={(selectedOptions) => {
+								const selectedValues = selectedOptions.map(
+									(option) => option.value,
+								)
+								field.onChange(selectedValues)
+							}}
+							isMulti
+							styles={{
+								option: (provided, state) => ({
+									...provided,
+									color: state.data.color,
+								}),
+							}}
+						/>
+					)}
+				/>
 				<label className="block mb-2 font-medium">Overall:</label>
 				<SensorySelector id="overall" register={register} />
-
+				<Controller
+					name="overallProfiles"
+					control={control}
+					render={({ field }) => (
+						<Select
+							{...field}
+							options={overallOptions}
+							value={
+								field.value
+									? overallOptions.filter((option) =>
+											field.value.includes(option.value),
+										)
+									: []
+							}
+							onChange={(selectedOptions) => {
+								const selectedValues = selectedOptions.map(
+									(option) => option.value,
+								)
+								field.onChange(selectedValues)
+							}}
+							isMulti
+							styles={{
+								option: (provided, state) => ({
+									...provided,
+									color: state.data.color,
+								}),
+							}}
+						/>
+					)}
+				/>
 				<button
 					type="submit"
 					className="mt-4 px-4 py-2 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition duration-200"

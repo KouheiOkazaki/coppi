@@ -116,26 +116,31 @@ model CoeFormList {
 }
 
 model CoeFormData {
-  id            String       @id @default(cuid())
-  sampleNo      String
-  roastLevel    String
-  dryAroma      Float
-  crustAroma    Float
-  breakAroma    Float
-  // defects       Float
-  cleanCup      Float
-  cleanCupProfiles  String[]
-  sweet         Float
-  sweetnessProfiles  String[]
-  acidity       Float
-  mouthfeel     Float
-  flavor        Float
-  aftertaste    Float
-  balance       Float
-  overall       Float
-  createdAt     DateTime     @default(now())
+  id                  String        @id @default(cuid())
+  sampleNo            String
+  roastLevel          String
+  dryAroma            Float
+  crustAroma          Float
+  breakAroma          Float
+  cleanCup            Float
+  cleanCupProfiles    String[]
+  sweet               Float
+  sweetnessProfiles   String[]
+  acidity             Float
+  acidityProfiles     String[]
+  mouthfeel           Float
+  mouthfeelProfiles   String[]
+  flavor              Float
+  flavorProfiles      String[]
+  aftertaste          Float
+  aftertasteProfiles  String[]
+  balance             Float
+  balanceProfiles     String[]
+  overall             Float
+  overallProfiles     String[]
+  createdAt           DateTime      @default(now())
 
   // Define a relationship to the CoeFormList model
-  coeFormList   CoeFormList? @relation(fields: [coeFormListId], references: [id])
-  coeFormListId String?      @map("coeFormList_id") // Foreign key
+  coeFormList         CoeFormList? @relation(fields: [coeFormListId], references: [id])
+  coeFormListId       String?      @map("coeFormList_id") // Foreign key
 }
