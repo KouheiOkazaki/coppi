@@ -23,11 +23,17 @@ export type CoeFormData = {
 	sweet: number
 	sweetnessProfiles: string[]
 	acidity: number
+	acidityProfiles: string[]
 	mouthfeel: number
+	mouthfeelProfiles: string[]
 	flavor: number
+	flavorProfiles: string[]
 	aftertaste: number
+	aftertasteProfiles: string[]
 	balance: number
+	balanceProfiles: string[]
 	overall: number
+	overallProfiles: string[]
 }
 
 export type SensorySelectorProps = {
