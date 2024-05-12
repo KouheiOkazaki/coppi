@@ -3,6 +3,7 @@ import React from 'react'
 import { useSession, signIn } from 'next-auth/react'
 import { useForm } from 'react-hook-form'
 import TabNavigation from '@/src/components/common/navigation/Navigation'
+import Logout from '@/src/components/auth/Logout'
 
 interface ProfileFormValues {
 	name: string
@@ -10,7 +11,7 @@ interface ProfileFormValues {
 }
 export default function ProfilePage() {
 	const { data: session, status } = useSession()
-	const { register, handleSubmit, reset } = useForm<ProfileFormValues>()
+	const { register, handleSubmit } = useForm<ProfileFormValues>()
 
 	const onSubmit = async (data: ProfileFormValues) => {
 		// フォームの送信処理を実装する
@@ -86,13 +87,7 @@ export default function ProfilePage() {
 									>
 										更新する
 									</button>
-									<button
-										type="button"
-										onClick={() => reset()}
-										className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition duration-200 ease-in-out"
-									>
-										リセット
-									</button>
+									<Logout/>
 								</div>
 							</div>
 						</form>
