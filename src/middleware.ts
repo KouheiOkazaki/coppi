@@ -4,6 +4,7 @@ import { i18n } from '../i18n-config' // i18n 設定をインポート
 import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 
+
 function getLocale(request: NextRequest): string | undefined {
 	const negotiatorHeaders: Record<string, string> = {}
 	request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
@@ -14,6 +15,8 @@ function getLocale(request: NextRequest): string | undefined {
 	const locale = matchLocale(languages, locales, i18n.defaultLocale)
 	return locale
 }
+
+export { auth } from "@/src/libs/auth"
 
 export async function middleware(request: NextRequest) {
 	const url = request.nextUrl.clone()
